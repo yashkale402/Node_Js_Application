@@ -305,6 +305,7 @@ Go to: **GitHub Repo → Settings → Webhooks → Add Webhook**
 
 ## 🚀 Daily Deployment Workflow
 
+Do this on your local system and GitHub webhook automatically trigger our build and deploy the Letest application.
 ```bash
 git add .
 git commit -m "new feature"
