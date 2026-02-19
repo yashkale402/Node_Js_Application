@@ -67,6 +67,8 @@ sudo systemctl status jenkins
 # Get Jenkins password
  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
+![Alt text](assets/Jenkins_install.png)
+
 
 Open Jenkins in your browser:
 
@@ -87,6 +89,7 @@ npm -v
 
 sudo npm install -g pm2
 ```
+![Alt text](assets/InstallNode.js20&PM2.png)
 
 ### Step 3 — Install and Enable Nginx
 
@@ -95,7 +98,7 @@ sudo apt install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
-
+![Alt text](assets/InstallandEnableNginx.png)
 
 ### Step 4 — Sudoers Configuration
 
@@ -111,8 +114,9 @@ Add the following entries to the `/etc/sudoers` file using `visudo`:
 jenkins ALL=(ALL) NOPASSWD: ALL
 ubuntu  ALL=(ALL) NOPASSWD: ALL
 ```
+![Alt text](assets/SudoersConfiguration.png)
 
-4. Save and exit the editor.
+3. Save and exit the editor.
 
 > ⚠️ **Warning:** Granting `NOPASSWD: ALL` gives full passwordless root access. Use with caution in production environments.
 
@@ -144,6 +148,7 @@ server {
     }
 }
 ```
+![Alt text](assets/ConfigureNginxReverseProxy(Port 80 → 3000).png)
 
 Apply the config:
 
@@ -159,12 +164,14 @@ sudo env PATH=$PATH:/usr/bin pm2 startup systemd -u jenkins --hp /var/lib/jenkin
 ```
 
 ---
+![Alt text](assets/SetupPM2Auto-Start.png)
 
 ## 🗄️ SQLite Database Setup
 
 > ⚠️ **CRITICAL — ONE TIME SETUP**
 > SQLite database is **NOT** stored in GitHub — it **must** exist on the server.
 > Skipping this step will cause a `SQLITE_CANTOPEN` error ❌
+> ![Alt text](assets/SQLiteDatabaseSetup.png)
 
 ```bash
 sudo -i
@@ -173,6 +180,7 @@ touch database.sqlite
 chown jenkins:jenkins database.sqlite
 chmod 664 database.sqlite
 ```
+
 
 ---
 
@@ -269,10 +277,14 @@ If your web server runs as `www-data` instead of `ubuntu`, either:
 5. **Pipeline:**
    - Definition: `Pipeline script from SCM`
    - SCM: `Git`
+   - ![Alt text](assets/Pipeline&name.png)
    - Repo URL: `https://github.com/yashkale402/Node_Js_Application.git`
    - Branch: `*/main`
    - Script Path: `Jenkinsfile`
-6. Click **Save → Build Now**
+   - ![Alt text](assets/Pipeline_Script_from_scm.png)
+6. Click **Save **
+
+
 
 ---
 
@@ -286,6 +298,9 @@ Go to: **GitHub Repo → Settings → Webhooks → Add Webhook**
 | Content Type | `application/json` |
 | Events | Push events |
 
+![Alt text](assets/webhook_settings.png)
+![Alt text](assets/webhook_settings2.png)
+
 ---
 
 ## 🚀 Daily Deployment Workflow
@@ -295,6 +310,9 @@ git add .
 git commit -m "new feature"
 git push origin main
 ```
+
+![Alt text](assets/Screenshot 2026-02-19 142609.png)
+![Alt text](assets/)
 
 🎉 Jenkins automatically deploys your app!
 
