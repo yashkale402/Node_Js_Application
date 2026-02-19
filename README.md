@@ -316,7 +316,7 @@ git push origin main
 
 🎉 Jenkins automatically deploys your app!
 
-![Alt text](assets/2)
+![Alt text](assets/2.png)
 
 ---
 
