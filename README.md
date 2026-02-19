@@ -299,7 +299,7 @@ Go to: **GitHub Repo → Settings → Webhooks → Add Webhook**
 | Events | Push events |
 
 ![Alt text](assets/webhook_settings.png)
-![Alt text](assets/webhook_settings2.png)
+![Alt text](assets/webhook_settings_2.png)
 
 ---
 
@@ -311,10 +311,12 @@ git commit -m "new feature"
 git push origin main
 ```
 
-![Alt text](assets/Screenshot 2026-02-19 142609.png)
-![Alt text](assets/)
+![Alt text](assets/1.png)
+
 
 🎉 Jenkins automatically deploys your app!
+
+![Alt text](assets/2)
 
 ---
 
